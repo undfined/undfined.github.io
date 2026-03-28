@@ -1,244 +1,302 @@
+/* ---- One Dark Pro palette ---- */
 :root {
-  /* Colors */
-  --beige: #a69c7d;
-  --black-01: #121212;
-  --black-02: #242424;
-  --green-01: #71853d;
-  --light-grey: #f8f6f3;
-  --mauve: #c88e8e;
-  --medium-grey: #ececec;
-  --dark-grey: #dadada;
-  --white: #f7f5f2;
-  --yellow-01: #eeff04;
-
-  /* Scroll */
-  scrollbar-width: thin !important;
-
-  /* Breakpoints */
-  --small: 900px;
-  --medium: 1240px;
-  --large: 1440px;
+  --bg:         #282c34;
+  --bg-raised:  #2c313c;
+  --border:     #3e4451;
+  --text:       #abb2bf;
+  --text-head:  #dde1e8;
+  --text-muted: #5c6370;
+  --blue:       #61afef;
+  --green:      #98c379;
+  --yellow:     #e5c07b;
+  --purple:     #c678dd;
+  --cyan:       #56b6c2;
+  --red:        #e06c75;
 }
 
-html,
-body {
+/* ---- Reset & Base ---- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  color: var(--black-01);
-  font-family: 'IBM Plex Mono', monospace;
-  scroll-behavior: smooth;
-  background-color: var(--light-grey);
-  width: 100vw;
+  padding: 0;
 }
 
-span.highlight {
-  text-decoration: underline;
-  text-decoration-color: var(--yellow-01);
-  text-underline-offset: 6px;
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
+
+body {
+  font-family: 'Inconsolata', ui-monospace, 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+body.fonts-loaded {
+  opacity: 1;
+}
+
+/* ---- Layout ---- */
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ---- Typography ---- */
+
+h1 {
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text-head);
+  margin-bottom: 0.35rem;
+}
+
+h2 {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1.1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ---- Links ---- */
 
 a {
-  color: var(--blaock-02);
-  font-size: 16px;
-  font-weight: 700;
+  color: var(--blue);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  text-decoration-thickness: 10px;
-  text-decoration-color: var(--yellow-01);
-  cursor: pointer;
 }
 
-.page-container {
-  height: 750px;
-  width: 100%;
-  display: inline-block;
-}
+/* ---- Header ---- */
 
-.content-container {
-  padding: 30px 40px 30px 30px;
-  max-width: var(--small);
+header {
   display: flex;
-  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.hero-container {
-  background-color: var(--mauve);
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  flex-grow: 1;
+.header-text {
+  flex: 1;
 }
 
-.main-container {
-  background-color: var(--light-grey);
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  flex-grow: 1;
-}
-
-.header {
-  padding-bottom: 30px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.header-name {
-  font-size: 44px;
-  font-weight: 300;
-}
-
-.header-img {
-  margin-left: auto;
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  overflow: hidden;
-  opacity: 0.7;
-}
-
-.content {
-  width: 100%;
-}
-
-.content-section {
-  padding: 30px 0;
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 44px;
-}
-
-.cv {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 100%;
-}
-
-.cv-header {
-  font-size: 24px;
+.subtitle {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.78rem;
   font-weight: 400;
-  text-align: left;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
-.cv-body {
-  margin-top: 40px;
-  width: 100%;
-  padding-left: 40px;
-  margin-left: 4px;
-  border-left: 2px solid var(--beige);
+.subtitle a {
+  color: var(--text-muted);
 }
 
-.cv-section {
-  width: 100%;
-  padding-bottom: 45px;
+.subtitle a:hover {
+  color: var(--blue);
 }
 
-.cv-section:last-child {
-  padding: 0;
+nav.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.75rem;
 }
 
-.section-title {
-  padding-bottom: 8px;
+nav.links a {
+  color: var(--cyan);
 }
 
-.section-dates {
-  font-size: 16px;
+.header-photo {
+  flex-shrink: 0;
+}
+
+.header-photo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--border);
+  filter: grayscale(10%);
+}
+
+/* ---- Sections ---- */
+
+section {
+  margin-bottom: 2.75rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* ---- News ---- */
+
+.news-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.news-list li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.news-date {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.72rem;
   font-weight: 500;
-  padding-bottom: 20px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 6rem;
 }
 
-.section-content {
-  line-height: 28px;
-  font-weight: 300;
-  width: 80%;
-}
+/* ---- Publications ---- */
 
-/* Divider */
-.divider {
+.pub-list {
+  list-style: none;
   display: flex;
-  flex-flow: row nowrap;
-  padding: 0 10%;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
-.ellipse-holder {
-  margin: 45px 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 50px;
+.pub-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.15rem;
+  color: var(--text-head);
+}
+
+.pub-title a {
+  color: var(--text-head);
+}
+
+.pub-title a:hover {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.pub-authors {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 0.1rem;
+}
+
+.pub-authors strong {
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+.pub-venue {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.72rem;
+  color: var(--green);
+}
+
+/* ---- Footer ---- */
+
+footer {
+  padding-top: 2rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
   display: flex;
-  flex-flow: row nowrap;
-}
-
-.ellipse {
-  position: absolute;
-  background: radial-gradient(
-    ellipse,
-    transparent,
-    transparent 7px,
-    var(--dark-grey) 7px,
-    var(--dark-grey) 10px,
-    transparent 11px
-  );
-  background-size: 36px 40px;
-  width: 100%;
-  height: 20px;
-}
-
-.ellipse2 {
-  top: 20px;
-  left: 18px;
-  background-position: 0px -20px;
-}
-
-.social-section {
-  display: flex;
-  flex-flow: row nowrap;
-  width: 30%;
-  align-self: center;
-  padding: 60px 0 30px 0;
-}
-
-.social-img {
-  height: 30px;
-  width: 30px;
-  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
   align-items: center;
-  justify-content: center;
-  padding-right: 10px;
 }
 
-.social-img:hover {
-  cursor: pointer;
-  opacity: 0.7;
+footer a {
+  color: var(--text-muted);
 }
 
-@media only screen and (max-width: 1280px) {
-  .header-name {
-    font-size: 42px;
+footer a:hover {
+  color: var(--blue);
+}
+
+/* ---- Mobile ---- */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 1.75rem 1.25rem 3rem;
   }
 
-  .content-section {
-    font-size: 20px;
-    line-height: 42px;
+  header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
   }
 
-  .cv-body {
-    padding-left: 20px;
+  .header-photo img {
+    width: 80px;
+    height: 80px;
   }
 
-  .section-dates {
-    font-size: 15px;
+  h1 {
+    font-size: 1.35rem;
   }
 
-  .section-content {
-    font-size: 15px;
+  nav.links {
+    justify-content: center;
+  }
+
+  section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  footer {
+    justify-content: center;
+    gap: 0.4rem 0.5rem;
+  }
+
+  /* stack date above content on narrow screens */
+  .news-list li {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .news-date {
+    min-width: unset;
   }
 }
