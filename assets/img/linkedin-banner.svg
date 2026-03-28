@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <rect width="1584" height="396" fill="#282c34"/>
+
+  <!-- Domain mixing bars, right-aligned, matching favicon motif -->
+  <rect x="1050" y="137" width="455" height="10" rx="5" fill="#61afef"/>
+  <rect x="1050" y="165" width="320" height="10" rx="5" fill="#98c379"/>
+  <rect x="1050" y="193" width="500" height="10" rx="5" fill="#c678dd"/>
+  <rect x="1050" y="221" width="225" height="10" rx="5" fill="#e5c07b"/>
+  <rect x="1050" y="249" width="385" height="10" rx="5" fill="#56b6c2"/>
+</svg>
